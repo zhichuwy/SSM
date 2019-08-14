@@ -5,9 +5,9 @@
 
 <generatorConfiguration>
 
-    <properties resource="generator.properties"></properties>
+    <properties resource="mysql.properties"></properties>
     <!--指定特定数据库的jdbc驱动jar包的位置-->
-    <classPathEntry location="${jdbc.driverLocation}"/>
+    <!--<classPathEntry location="${jdbc.driverLocation}"/>-->
 
     <!--targetRuntime="MyBatis3Simple":生成简单版的CRUD;MyBatis3:豪华版 -->
     <context id="MyBatisGenerator" targetRuntime="MyBatis3">
@@ -26,7 +26,7 @@
         <jdbcConnection
                 driverClass="${jdbc.driverClass}"
                 connectionURL="${jdbc.connectionURL}"
-                userId="${jdbc.userId}"
+                userId="${jdbc.user}"
                 password="${jdbc.password}">
         </jdbcConnection>
 

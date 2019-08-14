@@ -12,7 +12,6 @@
     <result column="version" jdbcType="INTEGER" property="version" />
     <result column="note" jdbcType="VARCHAR" property="note" />
   </resultMap>
-
   <sql id="Base_Column_List">
     id, user_id, amount, send_date, total, unit_amount, stock, version, note
   </sql>

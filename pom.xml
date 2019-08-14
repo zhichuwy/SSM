@@ -161,6 +161,13 @@
                         <verbose>true</verbose>
                         <overwrite>true</overwrite>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>8.0.16</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <plugin>

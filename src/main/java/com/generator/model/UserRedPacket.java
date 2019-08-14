@@ -1,59 +1,61 @@
 package com.generator.model;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.math.BigDecimal;
+import java.util.Date;
 
 public class UserRedPacket implements Serializable {
+    private Integer id;
 
-    private Long id;
+    private Integer redPacketId;
 
-    private Long redPacketId;
+    private Integer userId;
 
-    private Long userId;
+    private BigDecimal amount;
 
-    private Double amount;
-
-    private Timestamp grabTime;
+    private Date grabTime;
 
     private String note;
 
-    public Long getId() {
+    private static final long serialVersionUID = 1L;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getRedPacketId() {
+    public Integer getRedPacketId() {
         return redPacketId;
     }
 
-    public void setRedPacketId(Long redPacketId) {
+    public void setRedPacketId(Integer redPacketId) {
         this.redPacketId = redPacketId;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public Timestamp getGrabTime() {
+    public Date getGrabTime() {
         return grabTime;
     }
 
-    public void setGrabTime(Timestamp grabTime) {
+    public void setGrabTime(Date grabTime) {
         this.grabTime = grabTime;
     }
 
@@ -62,6 +64,6 @@ public class UserRedPacket implements Serializable {
     }
 
     public void setNote(String note) {
-        this.note = note;
+        this.note = note == null ? null : note.trim();
     }
 }
