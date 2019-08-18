@@ -10,5 +10,5 @@ public interface UserRedPacketService {
      * @param userId      抢红包用户编号
      * @return 影响记录条数
      */
-    public int grapRedPacket(Long redPacketId, Long userId);
+    int grapRedPacket(Long redPacketId, Long userId);
 }
