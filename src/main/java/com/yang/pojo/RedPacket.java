@@ -7,11 +7,11 @@ public class RedPacket implements Serializable {
 
     private Long id;
     private Long userId;
-    private Double amount; //20W
+    private Double amount; //10W
     private Timestamp sendDate;
-    private Integer total; //20000个
+    private Integer total; //1000个
     private Double unitAmount; //每个10元
-    private Integer stock; //初始剩余20000个
+    private Integer stock; //初始剩余1000个
     private Integer version;
     private String note;
 

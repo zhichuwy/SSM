@@ -4,7 +4,7 @@
 <mapper namespace="com.yang.dao.UserRedPacketDao">
 
     <!-- useGeneratedKeys keyProperty 会返回数据库生成的主键信息 -->
-    <insert id="grapRedPacket" useGeneratedKeys="true" keyProperty="id"
+    <insert id="grabRedPacket" useGeneratedKeys="true" keyProperty="id"
             parameterType="com.yang.pojo.UserRedPacket">
         insert into t_user_red_packet (red_packet_id, user_id, amount, grab_time, note)
         values (#{redPacketId}, #{userId}, #{amount}, now(), #{note})

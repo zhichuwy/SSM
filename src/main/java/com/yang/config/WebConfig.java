@@ -45,7 +45,7 @@ public class WebConfig {
     @Bean(name = "requestMappingHandlerAdapter")
     public HandlerAdapter initRequestMappingHandlerAdapter() {
         //创建 RequestMappingHandlerAdapter 适配器
-        RequestMappingHandlerAdapter rmhd = new RequestMappingHandlerAdapter();
+        RequestMappingHandlerAdapter requestMappingHandlerAdapter = new RequestMappingHandlerAdapter();
         //HTTP JSON 转换器
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
         // MappingJackson2HttpMessageConverter 接收JSON类型消息的转换
@@ -55,8 +55,8 @@ public class WebConfig {
         //加入转换器的支持类型
         jsonConverter.setSupportedMediaTypes(mediaTypes);
         //往适配器加入json转换器
-        rmhd.getMessageConverters().add(jsonConverter);
-        return rmhd;
+        requestMappingHandlerAdapter.getMessageConverters().add(jsonConverter);
+        return requestMappingHandlerAdapter;
     }
 
 }

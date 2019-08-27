@@ -42,10 +42,10 @@ public class WebAppInitializer
         Long singleMax = (long) (5 * Math.pow(2, 20));
 
         //10MB
-        Long totleMax = (long) (10 * Math.pow(2, 20));
+        Long totalMax = (long) (10 * Math.pow(2, 20));
 
         //设置上传文件配置
         dynamic.setMultipartConfig(new MultipartConfigElement(filePath,
-                singleMax, totleMax, 0));
+                singleMax, totalMax, 0));
     }
 }

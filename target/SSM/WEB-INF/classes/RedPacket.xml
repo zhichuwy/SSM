@@ -17,11 +17,46 @@
         where id = #{id}
     </select>
 
+
+    <!-- 悲观锁机制 -->
+    <!-- 查询红包具体信息 -->
+    <select id="getRedPacketForUpdate" parameterType="long" resultType="com.yang.pojo.RedPacket">
+        select id,
+               user_id     as userId,
+               amount,
+               send_date   as sendDate,
+               total,
+               unit_amount as unitAmount,
+               stock,
+               version,
+               note
+        from t_red_packet
+        where id = #{id} for
+        update
+    </select>
+    <!-- 悲观锁机制 -->
+
+
     <!-- 扣减红包库存数量 -->
     <update id="decreaseRedPacket">
         update t_red_packet
         set stock =stock - 1
         where id = #{id}
     </update>
+
+
+    <!-- 乐观锁机制 -->
+    <!-- 通过版本号扣减红包库存数量
+         每更新一次，版本增加一，
+         其次增加对版本号的判断
+    -->
+    <update id="decreaseRedPacketForVersion">
+        update t_red_packet
+        set stock   =stock - 1,
+            version = version + 1
+        where id = #{id}
+          and version = #{version}
+    </update>
+    <!-- 乐观锁机制 -->
 
 </mapper>

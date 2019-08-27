@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--  此项目中com.yang.dao.xxx.xml无效  -->
     <mappers>
         <mapper resource="/RedPacket.xml"/>
         <mapper resource="/UserRedPacket.xml"/>
@@ -10,29 +11,29 @@
 </configuration>
 
 
-<!--
-关于编译后资源文件路径问题
-编译后.class文件和资源文件位置：
-./项目(SSM)/target/classes(即:classPath)
+        <!--
+        关于编译后资源文件路径问题
+        编译后.class文件和资源文件位置：
+        ./项目(SSM)/target/classes(即:classPath)
 
-com.yang.*;                 .class文件按包结构组织
-resource文件（可能多层目录）   与com文件夹处于同一层次
-
-
-1）Spring方式获取
-//配置MyBatis配置文件
-Resource resource = new ClassPathResource("/mybatis/mybatis-config.xml");
-sqlSessionFactory.setConfigLocation(resource);
+        com.yang.*;                 .class文件按包结构组织
+        resource文件（可能多层目录）   与com文件夹处于同一层次
 
 
-2）Java方式获取-几种读取配置文件的方式比较
-调用 getResourceAsStream 方法 可以直接拿到目标文件的输入流。
-(代码在src/main/java目录下，资源文件在src/main/resources/目录下)：
-假设test.xml直接位于classPath下
-InputStream is = this.getClass().getResourceAsStream(test.xml);  //拿不到资源
-InputStream is = this.getClass().getResourceAsStream("/" +test.xml); // 拿到资源
-InputStream is = this.getClass().getClassLoader().getResourceAsStream(test.xml); //拿到资源
-第一种方式会从当前类的目录下去找，这个文件如果不和该类在一个目录下，就找不到。
-第二种方式会从编译后的整个classes目录下去找，maven也会把资源文件打包进classes文件夹，所以可以找到。
-第三种方式中ClassLoader就是从整个classes目录找的，所以前面无需再加/。
--->
+        1）Spring方式获取
+        //配置MyBatis配置文件
+        Resource resource = new ClassPathResource("/mybatis/mybatis-config.xml");
+        sqlSessionFactory.setConfigLocation(resource);
+
+
+        2）Java方式获取-几种读取配置文件的方式比较
+        调用 getResourceAsStream 方法 可以直接拿到目标文件的输入流。
+        (代码在src/main/java目录下，资源文件在src/main/resources/目录下)：
+        假设test.xml直接位于classPath下
+        InputStream is = this.getClass().getResourceAsStream(test.xml);  //拿不到资源
+        InputStream is = this.getClass().getResourceAsStream("/" +test.xml); // 拿到资源
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream(test.xml); //拿到资源
+        第一种方式会从当前类的目录下去找，这个文件如果不和该类在一个目录下，就找不到。
+        第二种方式会从编译后的整个classes目录下去找，maven也会把资源文件打包进classes文件夹，所以可以找到。
+        第三种方式中ClassLoader就是从整个classes目录找的，所以前面无需再加/。
+        -->
