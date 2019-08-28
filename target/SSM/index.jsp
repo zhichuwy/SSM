@@ -29,7 +29,10 @@
 
 
                     // 读已提交 乐观控制机制-重入-限制3次
-                    url: "./userRedPacket/grabRedPacketForVersion_times.do?redPacketId=4&userId=" + i,
+                    //url: "./userRedPacket/grabRedPacketForVersion_times.do?redPacketId=4&userId=" + i,
+
+                    // Redis
+                    url: "./userRedPacket/grabRedPacketByRedis.do?redPacketId=5&userId=" + i,
 
                     success: function (result) {
 

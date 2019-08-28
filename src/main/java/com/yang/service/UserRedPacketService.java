@@ -14,6 +14,8 @@ public interface UserRedPacketService {
      */
     int grabRedPacket(Long redPacketId, Long userId);
 
+    //=========================For Version=================================
+
     /**
      * 乐观锁机制完成抢红包功能，并调用Dao层grabRedPacket保存抢红包信息
      *
@@ -23,9 +25,21 @@ public interface UserRedPacketService {
      */
     int grabRedPacketForVersion(Long redPacketId, Long userId);
 
-    //====================================================================
-
     int grabRedPacketForVersion_time(Long redPacketId, Long userId);//时间戳
+
     int grabRedPacketForVersion_times(Long redPacketId, Long userId);//重试次数
+
+    //=========================By Redis======================================
+
+    /**
+     * 通过Redis实现抢红包
+     *
+     * @param redPacketId --红包编号
+     * @param userId      --用户编号
+     * @return 0--没有库存 失败
+     * 1--成功，且不是最后一个红包
+     * 2--成功，且是最后一个红包
+     */
+    Long grabRedPacketByRedis(Long redPacketId, Long userId); //Long
 
 }

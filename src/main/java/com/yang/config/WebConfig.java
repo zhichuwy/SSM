@@ -7,6 +7,8 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.annotation.AsyncConfigurerSupport;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.HandlerAdapter;
 import org.springframework.web.servlet.ViewResolver;
@@ -22,7 +24,8 @@ import java.util.List;
 @ComponentScan(value = "com.*", includeFilters = {@Filter(type = FilterType.ANNOTATION, value = Controller.class)})
 //确定 Spring MVC 配置
 @EnableWebMvc
-public class WebConfig {
+@EnableAsync
+public class WebConfig extends AsyncConfigurerSupport {
 
     /**
      * 通过注解 @Bean 初始化视图解析器

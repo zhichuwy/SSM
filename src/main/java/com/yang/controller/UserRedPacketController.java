@@ -58,4 +58,20 @@ public class UserRedPacketController {
 
     //=============================乐观锁机制(重入-重试次数)==========================
 
+
+    //=============================Redis==========================
+
+    @RequestMapping(value = "/grabRedPacketByRedis")
+    @ResponseBody
+    public Map<String, Object> grabRedPacketByRedis(Long redPacketId, Long userId) {
+        //抢红包 乐观锁机制
+        Long result = userRedPacketService.grabRedPacketByRedis(redPacketId, userId);
+        Map<String, Object> retMap = new HashMap<>();
+        boolean flag = result > 0;
+        retMap.put("success", flag);
+        retMap.put("message", flag ? "抢红包成功" : "抢红包失败");
+        return retMap;
+    }
+    //=============================Redis==========================
+
 }
